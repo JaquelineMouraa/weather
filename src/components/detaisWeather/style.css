@@ -1,0 +1,30 @@
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.boxDetails {
+  margin-top: 10px;
+}
+
+.app-logo {
+  height: 6vmin;
+  pointer-events: none;
+}
+
+.homeLine {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2rem;
+  justify-content: space-between;
+}
+
+.colunaHome {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+}
+
+.titleDay {
+  font-size: 18px;
+}

@@ -1,0 +1,50 @@
+h1, h2, p {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  background-color: gray;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.lineTemp {
+  width: 10%;
+  display: flex;
+  margin-top: 3rem;
+  flex-direction: row;
+  align-items: center;
+}
+
+.homeColumn {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  padding-right: 2rem;
+  border-right: 1px solid #DDDDDD;
+}
+
+.degree {
+  font-size: 100px;
+}
+
+.degree-var {
+  font-size: 16px;
+}
+
+.boxForecast {
+  display: flex;
+  align-items: center;
+}
+
+.forecastTitle {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
