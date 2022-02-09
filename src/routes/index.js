@@ -1,16 +1,12 @@
-import React from "react";
-import { Route, BrowserRouter } from "react-router-dom";
-
+import { Routes, Route } from "react-router-dom";
 import Home from "../templates/Home";
 import Weather from "../templates/Weather";
 
-const Routes = () => {
+export default function Router() {
   return (
-    <BrowserRouter>
-      <Route component = { Home }  path="/" exact />
-      <Route component = { Weather }  path="/weather" />
-    </BrowserRouter>
+    <Routes>
+      <Route exact path="/" element={<Home />} />
+      <Route exact path="/weather" element={<Weather />} />
+    </Routes>
   );
-};
-
-export default Routes
+}

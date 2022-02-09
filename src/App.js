@@ -1,10 +1,11 @@
 import "./App.css";
-// import Weather from "./templates/Weather";
-import Home from "./templates/Home";
-import Routes from "./routes";
+import Router from "./routes"
+import { BrowserRouter } from "react-router-dom";
 
 export default function App() {
   return (
-    <Home />
+    <BrowserRouter>
+      <Router />
+    </BrowserRouter>
   );
 }
