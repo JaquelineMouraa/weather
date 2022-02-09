@@ -1,24 +1,13 @@
-h1, h2, p {
-  margin: 0;
-  padding: 0;
+.page {
+  background-color: blue;
 }
 
-.App {
-  text-align: center;
-  background-color: gray;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+/* 
 
 .lineTemp {
   width: 10%;
   display: flex;
-  margin-top: 3rem;
+  margin-top: 1rem;
   flex-direction: row;
   align-items: center;
 }
@@ -32,7 +21,7 @@ h1, h2, p {
 }
 
 .degree {
-  font-size: 100px;
+  font-size: 80px;
 }
 
 .degree-var {
@@ -46,5 +35,4 @@ h1, h2, p {
 
 .forecastTitle {
   font-size: 16px;
-  margin-bottom: 10px;
-}
+} */

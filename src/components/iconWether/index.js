@@ -1,10 +1,10 @@
-import './style.css'
-import logo from "../../../src/assets/logo.svg"
+import './style.css';
+import { FiSun } from 'react-icons/fi';
 
 export function IconWeather() {
   return (
     <div>
-        <img src={logo} className="App-logo" alt="logo" />
+        <FiSun />
     </div>
   );
 }

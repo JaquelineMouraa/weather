@@ -1,0 +1,42 @@
+.homePage {
+  text-align: center;
+  background-color: #111317;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.title {
+  font-size: 52px;
+  margin-bottom: -10px;
+}
+.subTitle {
+  font-size: 30px;
+}
+.globe {
+  width: 200px;
+  height: 200px;
+  margin-top: 2rem;
+}
+.boxCities {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  width: 30%;
+}
+.lineCities {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 4rem;
+}
+
+button {
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 2rem;
+  border: transparent;
+}
