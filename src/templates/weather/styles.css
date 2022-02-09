@@ -1,6 +1,8 @@
-.detailsPage {
+.page {
+  background-color: #111317;
+}
+.pageBox {
   text-align: center;
-  background-color: red;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -8,10 +10,21 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  margin-top: -4rem;
 }
-
-/* 
-
+.iconBack {
+  color: white;
+  width: 50px;
+  height: 50px;
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+.iconWeather {
+  width: 100px;
+  height: 100px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
 .lineTemp {
   width: 10%;
   display: flex;
@@ -19,28 +32,23 @@
   flex-direction: row;
   align-items: center;
 }
-
 .homeColumn {
   display: flex;
   flex-direction: column;
   margin-left: 2rem;
   padding-right: 2rem;
   border-right: 1px solid #DDDDDD;
-}
-
+} */
 .degree {
-  font-size: 80px;
+  font-size: 800px;
 }
-
 .degree-var {
   font-size: 16px;
 }
-
 .boxForecast {
   display: flex;
   align-items: center;
 }
-
 .forecastTitle {
   font-size: 16px;
-} */
+}
