@@ -1,9 +1,10 @@
 import "./style.css";
+import { useContext } from "react";
 import { BiWorld } from "react-icons/bi";
-import { Link } from "react-router-dom";
-// import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 export default function Home() {
+
   return (
     <div className="homePage">
       <div>
@@ -15,14 +16,14 @@ export default function Home() {
 
       <div className="boxCities">
         <div className="lineCities">
-        <Link to="/weather" className="link">Dallol</Link>
-        <Link to="/weather" className="link">Fairbanks</Link>
-        <Link to="/weather" className="link">London</Link>
+        <Link to="/weather/Dallol" className="link">Dallol</Link>
+        <Link to="/weather/Fairbanks" className="link">Fairbanks</Link>
+        <Link to="/weather/London" className="link">London</Link>
         </div>
         <div className="lineCities">
-        <Link to="/weather" className="link">Recife</Link>
-        <Link to="/weather" className="link">Vancouver</Link>
-        <Link to="/weather" className="link">Yakutsk</Link>
+        <Link to="/weather/Recife" className="link">Recife</Link>
+        <Link to="/weather/Vancouver" className="link">Vancouver</Link>
+        <Link to="/weather/Yakutsk" className="link">Yakutsk</Link>
         </div>
       </div>
     </div>

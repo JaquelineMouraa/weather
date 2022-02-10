@@ -6,7 +6,7 @@ export default function Router() {
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
-      <Route exact path="/weather" element={<Weather />} />
+      <Route exact path="/weather/:city" element={<Weather />} />
     </Routes>
   );
 }
