@@ -12,8 +12,8 @@ import { Link, useParams } from "react-router-dom";
 import { FiSun } from "react-icons/fi";
 
 export default function Weather() {
-  // const [location] = useState(city);
   const [weather, setWeather] = useState({});
+  const [forecast, setForecast] = useState({});
   const keyApi = "ed558a9ee7d74742a1c211750220702";
   const { city } = useParams();
 
@@ -30,7 +30,16 @@ export default function Weather() {
     setLoading(false);
   }, [city]);
 
-  console.log(weather);
+  useEffect(() => {
+    async function getForecast() {
+      const response = await app.get(
+        `/astronomy.json?key=${keyApi}&q=${city}`
+      );
+      setForecast(response.data);
+    }
+    getForecast();
+    setLoading(false);
+  }, [city]);
 
   return (
     <>
@@ -73,11 +82,11 @@ export default function Weather() {
                 </div>
                 <div className="homeColumn">
                   <p className="forecastTitle">sunrise</p>
-                  <p className="forecastTitle">5:14 AM</p>
+                  <p className="forecastTitle">{forecast.astronomy.astro.sunrise}</p>
                 </div>
                 <div className="homeColumn">
                   <p className="forecastTitle">sunset</p>
-                  <p className="forecastTitle">7:25 PM</p>
+                  <p className="forecastTitle">{forecast.astronomy.astro.sunset}</p>
                 </div>
                 <div>
                   <p className="forecastTitle">humity</p>
