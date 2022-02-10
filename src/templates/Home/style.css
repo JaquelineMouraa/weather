@@ -38,3 +38,30 @@
   text-decoration: none;
 }
 
+@media (max-width: 600px) {
+  .homePage {
+    width: 100%;
+  }
+  .title {
+    font-size: 30px;
+  }
+  .subTitle {
+    font-size: 16px;
+  }
+  .globe {
+    width: 100px;
+    height: 100px;
+    margin-top: 2rem;
+  }
+  .boxCities {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .lineCities {
+    margin-top: 2rem;
+  }
+  .link {
+    margin-left: 1rem;
+  }
+}

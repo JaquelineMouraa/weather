@@ -9,25 +9,11 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
 .linhaHome {
   display: flex;
   flex-direction: row;
-}
-
-.colunaHome {
-  display: flex;
-  flex-direction: column;
-}
-
-button {
-  background-color: transparent;
-  color: #ffffff;
-  font-size: 2rem;
-  border: transparent;
 }

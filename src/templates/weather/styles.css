@@ -35,8 +35,6 @@
 .homeColumn {
   display: flex;
   flex-direction: column;
-  margin-left: 2rem;
-  padding-right: 2rem;
   border-right: 1px solid #DDDDDD;
 } */
 .degree {
@@ -50,5 +48,37 @@
   align-items: center;
 }
 .forecastTitle {
-  font-size: 16px;
+  font-size: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+.lastColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  .pageBox {
+    width: 100%;
+  }
+  .iconBack {
+    color: white;
+    width: 35px;
+    height: 35px;
+    margin-top: 1rem;
+    margin-left: 1rem;
+  }
+  .boxForecast {
+    display: flex;
+    align-items: center;
+  }
+  .homeColumn {
+    margin-left: 5px;
+    padding-right: 5px;
+  }
+  .forecastTitle {
+    font-size: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
