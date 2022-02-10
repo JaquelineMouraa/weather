@@ -2,7 +2,11 @@ import app from "../../services/api.js";
 import { useEffect, useState } from "react";
 
 import "./styles.css";
-import { AiOutlineArrowLeft } from "react-icons/ai";
+import {
+  AiOutlineArrowLeft,
+  AiOutlineArrowUp,
+  AiOutlineArrowDown,
+} from "react-icons/ai";
 import { Details } from "../../components/detaisWeather";
 import { Link } from "react-router-dom";
 import { FiSun } from "react-icons/fi";
@@ -18,17 +22,23 @@ export default function Weather() {
         <p> Sunny </p>
 
         <div className="lineTemp">
-          <h2 className="degree"> 20 </h2>
+          <h2 className="degree">20</h2>
           <div className="colunaHome">
             <div>
               <p className="degree-escala">°C</p>
-              <p className="degree-var">25</p>
-              <p className="degree-var">20</p>
+              <div className="variation">
+                <AiOutlineArrowUp className="iconArrow"/>
+                <p className="degree-var">25</p>
+              </div>
+              <div className="variation">
+                <AiOutlineArrowDown className="iconArrow"/>
+                <p className="degree-var">20</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <FiSun className="iconWeather" />
+        <FiSun className="iconWeather"/>
         <Details />
 
         <div className="boxForecast">

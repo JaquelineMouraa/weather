@@ -1,25 +1,48 @@
 .boxDetails {
   margin-top: 0.7rem;
 }
-
 .app-logo {
   height: 6vmin;
   pointer-events: none;
 }
-
 .homeLine {
   display: flex;
   flex-direction: row;
   margin-bottom: 2rem;
   justify-content: space-between;
 }
-
 .colunaHome {
   display: flex;
+  align-items: center;
   flex-direction: column;
   margin-left: 2rem;
 }
-
 .titleDay {
-  font-size: 18px;
+  font-size: 25px;
+}
+.icon {
+  width: 40px;
+  height: 40px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 600px) {
+  .boxDetails {
+    margin-left: -20px;
+  }
+  .colunaHome {
+    display: flex;
+    flex-direction: column;
+  }
+  .titleDay {
+    font-size: 13px;
+  }
+  .icon {
+    width: 25px;
+    height: 25px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
 }
