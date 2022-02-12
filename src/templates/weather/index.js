@@ -7,90 +7,112 @@ import {
   AiOutlineArrowUp,
   AiOutlineArrowDown,
 } from "react-icons/ai";
-import { Details } from "../../components/detaisWeather";
+import clsx from "clsx";
+import { FiSun, FiCloudSnow, FiCloud, FiCloudDrizzle } from "react-icons/fi";
 import { Link, useParams } from "react-router-dom";
-import { FiSun } from "react-icons/fi";
+import { Details } from "../../components/detaisWeather";
 
 export default function Weather() {
-  const [weather, setWeather] = useState({});
+  const { city } = useParams();
+  const [loading, setLoading] = useState(true);
   const [forecast, setForecast] = useState({});
   const keyApi = "ed558a9ee7d74742a1c211750220702";
-  const { city } = useParams();
-
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function getWeather() {
-      const response = await app.get(
-        `/current.json?key=${keyApi}&q=${city}`
-      );
-      setWeather(response.data);
-    }
-    getWeather();
-    setLoading(false);
-  }, [city]);
 
   useEffect(() => {
     async function getForecast() {
-      const response = await app.get(
-        `/astronomy.json?key=${keyApi}&q=${city}`
-      );
+      const response = await app.get(`/forecast.json?key=${keyApi}&q=${city}`);
       setForecast(response.data);
     }
     getForecast();
     setLoading(false);
   }, [city]);
 
+  console.log(forecast);
+
   return (
     <>
       {loading ? (
         <div>Carregando...</div>
       ) : (
-        <div className="page">
+        <div
+          className={clsx("pageGray", {
+            ["pageGray"]:
+              forecast?.forecast?.forecastday[0]?.day.condition.text ===
+              "Freezing fog",
+            ["pageSilver"]:
+              forecast?.forecast?.forecastday[0]?.day.condition.text ===
+              "Partly cloudy", 
+            ["pageCyan"]:
+              forecast?.forecast?.forecastday[0]?.day.condition.text ===
+              "Sunny",
+          })}
+        >
           <Link to="/">
             <AiOutlineArrowLeft className="iconBack" />
           </Link>
           <div className="pageBox">
-            <h1>{weather.location.name}</h1>
-            <p>{weather.current.condition.text}</p>
+            <h1>{forecast?.location?.name}</h1>
+            <p className="forecastTitle">
+              {forecast?.forecast?.forecastday[0]?.day.condition.text}
+            </p>
 
             <div className="lineTemp">
-              <h2 className="degree">{weather.current.feelslike_c}</h2>
+              <p className="degree">{forecast?.current?.temp_c}</p>
               <div className="colunaHome">
-                <div>
-                  <p className="degree-escala">°C</p>
-                  <div className="variation">
-                    <AiOutlineArrowUp className="iconArrow" />
-                    <p className="degree-var">25</p>
-                  </div>
-                  <div className="variation">
-                    <AiOutlineArrowDown className="iconArrow" />
-                    <p className="degree-var">20</p>
-                  </div>
+                <p className="degree-escala">°C</p>
+                <div className="variation">
+                  <AiOutlineArrowUp className="iconArrow" />
+                  <p className="forecastTitle">
+                    {forecast?.forecast?.forecastday[0]?.day.maxtemp_c}°
+                  </p>
+                </div>
+                <div className="variation">
+                  <AiOutlineArrowDown className="iconArrow" />
+                  <p className="forecastTitle">
+                    {forecast?.forecast?.forecastday[0]?.day.mintemp_c}°
+                  </p>
                 </div>
               </div>
             </div>
 
-            <FiSun className="iconWeather" />
+            <div>
+              {forecast?.forecast?.forecastday[0]?.day.condition.text ===
+                "Sunny" && <FiSun className="iconWeather" />}
+              {forecast?.forecast?.forecastday[0]?.day.condition.text ===
+                "Freezing fog" && <FiCloudSnow className="iconWeather" />}
+              {forecast?.forecast?.forecastday[0]?.day.condition.text ===
+                "Mist" && <FiCloud className="iconWeather" />}
+              {forecast?.forecast?.forecastday[0]?.day.condition.text ===
+                "Patchy rain possible" && <FiCloudDrizzle className="iconWeather" />}
+              {forecast?.forecast?.forecastday[0]?.day.condition.text ===
+                "Partly cloudy" && <FiCloud className="iconWeather" />}
+              {/* {forecast?.forecast?.forecastday[0]?.day.condition.text ===
+                "Partly cloudy" && <FiCloud className="iconWeather" />}     */}
+            </div>
+
             <Details />
 
             <div className="boxForecast">
               <div className="linhaHome">
                 <div className="homeColumn">
                   <p className="forecastTitle">wind speed</p>
-                  <p className="forecastTitle">{weather.current.wind_kph}k/h</p>
+                  <p className="forecastTitle">{forecast?.current?.wind_mph} m/s</p>
                 </div>
                 <div className="homeColumn">
                   <p className="forecastTitle">sunrise</p>
-                  <p className="forecastTitle">{forecast.astronomy.astro.sunrise}</p>
+                  <p className="forecastTitle">
+                    {forecast?.forecast?.forecastday[0]?.astro.sunrise}
+                  </p>
                 </div>
                 <div className="homeColumn">
                   <p className="forecastTitle">sunset</p>
-                  <p className="forecastTitle">{forecast.astronomy.astro.sunset}</p>
+                  <p className="forecastTitle">
+                    {forecast?.forecast?.forecastday[0]?.astro.sunset}
+                  </p>
                 </div>
                 <div>
                   <p className="forecastTitle">humity</p>
-                  <p className="forecastTitle">{weather.current.humidity}%</p>
+                  <p className="forecastTitle">{forecast?.current?.humidity}%</p>
                 </div>
               </div>
             </div>

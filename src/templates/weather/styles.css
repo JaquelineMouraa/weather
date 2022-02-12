@@ -1,5 +1,11 @@
-.page {
-  background-color: #111317;
+.pageGray {
+  background: linear-gradient(356deg, rgba(79,87,103,1) 2%, rgba(96,103,119,1) 15%, rgba(98,105,121,1) 99%);
+}
+.pageSilver {
+  background: linear-gradient(360deg, rgba(166,166,166,1) 2%, rgba(199,199,199,1) 15%, rgba(224,224,224,1) 99%);
+}
+.pageCyan {
+  background: linear-gradient(360deg, rgba(58,160,181,1) 2%, rgba(75,186,204,1) 15%, rgba(86,203,219,1) 99%);
 }
 .pageBox {
   text-align: center;
@@ -9,11 +15,11 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #FFFFFF;
   margin-top: -4rem;
 }
 .iconBack {
-  color: white;
+  color: #FFFFFF;
   width: 50px;
   height: 50px;
   margin-top: 2rem;
@@ -80,7 +86,7 @@
     width: 100%;
   }
   .iconBack {
-    color: white;
+    color: #FFFFFF;
     width: 35px;
     height: 35px;
     margin-top: 1rem;
@@ -98,6 +104,7 @@
     font-size: 12px;
     margin-left: 10px;
     margin-right: 10px;
+    display: flex;
   }
   .degree {
     font-size: 100px;
