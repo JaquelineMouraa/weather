@@ -1,10 +1,13 @@
 .pageGray {
+  color:#FFFFFF;
   background: linear-gradient(356deg, rgba(79,87,103,1) 2%, rgba(96,103,119,1) 15%, rgba(98,105,121,1) 99%);
 }
 .pageSilver {
+  color: #000000;
   background: linear-gradient(360deg, rgba(166,166,166,1) 2%, rgba(199,199,199,1) 15%, rgba(224,224,224,1) 99%);
 }
 .pageCyan {
+  color:#FFFFFF;
   background: linear-gradient(360deg, rgba(58,160,181,1) 2%, rgba(75,186,204,1) 15%, rgba(86,203,219,1) 99%);
 }
 .pageBox {
@@ -15,7 +18,6 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: #FFFFFF;
   margin-top: -4rem;
 }
 .iconBack {

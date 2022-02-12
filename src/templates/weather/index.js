@@ -9,6 +9,7 @@ import {
 } from "react-icons/ai";
 import clsx from "clsx";
 import { FiSun, FiCloudSnow, FiCloud, FiCloudDrizzle } from "react-icons/fi";
+import { BsFillCloudSunFill, BsFillCloudSnowFill } from "react-icons/bs";
 import { Link, useParams } from "react-router-dom";
 import { Details } from "../../components/detaisWeather";
 
@@ -26,8 +27,6 @@ export default function Weather() {
     getForecast();
     setLoading(false);
   }, [city]);
-
-  console.log(forecast);
 
   return (
     <>
@@ -81,13 +80,15 @@ export default function Weather() {
               {forecast?.forecast?.forecastday[0]?.day.condition.text ===
                 "Freezing fog" && <FiCloudSnow className="iconWeather" />}
               {forecast?.forecast?.forecastday[0]?.day.condition.text ===
+                "Light snow" && <BsFillCloudSnowFill className="iconWeather" />}    
+              {forecast?.forecast?.forecastday[0]?.day.condition.text ===
                 "Mist" && <FiCloud className="iconWeather" />}
               {forecast?.forecast?.forecastday[0]?.day.condition.text ===
                 "Patchy rain possible" && <FiCloudDrizzle className="iconWeather" />}
               {forecast?.forecast?.forecastday[0]?.day.condition.text ===
-                "Partly cloudy" && <FiCloud className="iconWeather" />}
-              {/* {forecast?.forecast?.forecastday[0]?.day.condition.text ===
-                "Partly cloudy" && <FiCloud className="iconWeather" />}     */}
+                "Moderate rain" && <FiCloudDrizzle className="iconWeather" />}      
+              {forecast?.forecast?.forecastday[0]?.day.condition.text ===
+                "Partly cloudy" && <BsFillCloudSunFill className="iconWeather" />}
             </div>
 
             <Details />
