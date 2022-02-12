@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import {
   BsFillCloudsFill,
   BsFillCloudyFill,
+  BsFillCloudSunFill,
   BsFillCloudSnowFill,
   BsFillCloudRainFill,
   BsFillCloudHailFill,
@@ -13,7 +14,6 @@ import {
   BsFillCloudHaze2Fill,
   BsFillCloudDrizzleFill,
   BsFillBrightnessHighFill,
-  BsFillCloudSunFill,
 } from "react-icons/bs";
 
 import { FiCloud } from "react-icons/fi";
@@ -96,7 +96,9 @@ export function Details() {
               {weather?.forecast?.forecastday[0]?.hour[15]?.condition.text ===
                 "Light sleet" && <BsFillCloudHailFill className="icon" />}
               {weather?.forecast?.forecastday[0]?.hour[15]?.condition.text ===
-                "Patchy rain possible" && <BsFillCloudDrizzleFill className="icon" />}
+                "Patchy rain possible" && (
+                <BsFillCloudDrizzleFill className="icon" />
+              )}
               {weather?.forecast?.forecastday[0]?.hour[15]?.condition.text ===
                 "Cloudy" && <BsFillCloudyFill className="icon" />}
               {weather?.forecast?.forecastday[0]?.hour[15]?.condition.text ===
