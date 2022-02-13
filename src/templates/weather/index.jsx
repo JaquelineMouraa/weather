@@ -10,7 +10,7 @@ import {
 import "./styles.css";
 import clsx from "clsx";
 import { Link, useParams } from "react-router-dom";
-import { Details } from "../../components/detaisWeather";
+import { Details } from "../../components/DetaisWeather";
 import { BsFillCloudSunFill, BsFillCloudSnowFill } from "react-icons/bs";
 import { FiSun, FiCloudSnow, FiCloud, FiCloudDrizzle } from "react-icons/fi";
 
@@ -29,7 +29,6 @@ export default function Weather() {
     setLoading(false);
   }, [city]);
 
-
   return (
     <>
       {loading ? (
@@ -37,12 +36,9 @@ export default function Weather() {
       ) : (
         <div
           className={clsx("pageGray", {
-          ["pageSilver"]:
-            forecast?.current?.condition?.text ===
-            "Partly cloudy",
-          ["pageCyan"]:
-            forecast?.current?.condition?.text ===
-            "Sunny",
+            ["pageSilver"]:
+              forecast?.current?.condition?.text === "Partly cloudy",
+            ["pageCyan"]: forecast?.current?.condition?.text === "Sunny",
           })}
         >
           <Link to="/">
@@ -99,6 +95,8 @@ export default function Weather() {
                     return <FiCloudDrizzle className="iconWeather" />;
                   case "Partly cloudy":
                     return <BsFillCloudSunFill className="iconWeather" />;
+                  default:
+                    return <FiCloud className="iconWeather" />;
                 }
               })}
             </div>

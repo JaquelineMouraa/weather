@@ -63,6 +63,8 @@ export function Details() {
                     return <BsFillCloudDrizzleFill className="icon" />;
                   case "Partly cloudy":
                     return <BsFillCloudSunFill className="icon" />;
+                  default: 
+                    return <FiCloud className="icon" />;
                 }
               })}
 
@@ -90,6 +92,8 @@ export function Details() {
                     return <BsFillCloudsFill className="icon" />;
                   case "Partly cloudy":
                     return <BsFillCloudSunFill className="icon" />;
+                  default: 
+                    return <FiCloud className="icon" />;  
                 }
               })}
 
@@ -117,6 +121,8 @@ export function Details() {
                     return <BsFillCloudsFill className="icon" />;
                   case "Partly cloudy":
                     return <BsFillCloudSunFill className="icon" />;
+                  default: 
+                    return <FiCloud className="icon" />;  
                 }
               })}
 
@@ -144,6 +150,8 @@ export function Details() {
                     return <BsFillCloudDrizzleFill className="icon" />;
                   case "Partly cloudy":
                     return <BsFillCloudyFill className="icon" />;
+                  default: 
+                    return <FiCloud className="icon" />;  
                 }
               })}
 
