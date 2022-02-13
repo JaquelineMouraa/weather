@@ -35,7 +35,6 @@ export function Details() {
     setLoading(false);
   }, [city]);
 
-  console.log(weather);
 
   return (
     <>
@@ -47,93 +46,110 @@ export function Details() {
           <div className="homeLine">
             <div className="colunaHome">
               <p className="titleDay">dawn</p>
-              {weather?.forecast?.forecastday[0]?.hour[3]?.condition.text ===
-                "Clear" && <FiCloud className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[3]?.condition.text ===
-                "Moderate snow" && <BsFillCloudSnowFill className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[3]?.condition.text ===
-                "Light rain" && <BsFillCloudRainFill className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[3]?.condition.text ===
-                "Cloudy" && <BsFillCloudyFill className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[3]?.condition.text ===
-                "Freezing fog" && <BsFillCloudHaze2Fill className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[3]?.condition.text ===
-                "Partly cloudy" && <BsFillCloudSunFill className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[3]?.condition.text ===
-                "Patchy rain possible" && (
-                <BsFillCloudDrizzleFill className="icon" />
-              )}
 
-              <p className="titleDay">
-                {weather?.forecast?.forecastday[0]?.hour[3]?.temp_c} °C
-              </p>
+              {weather?.forecast?.forecastday.map((item) => {
+                switch (item?.hour[3]?.condition.text) {
+                  case "Clear":
+                    return <FiCloud className="icon" />;
+                  case "Moderate snow":
+                    return <BsFillCloudSnowFill className="icon" />;
+                  case "Light rain":
+                    return <BsFillCloudRainFill className="icon" />;
+                  case "Cloudy":
+                    return <BsFillCloudyFill className="icon" />;
+                  case "Freezing fog":
+                    return <BsFillCloudHaze2Fill className="icon" />;
+                  case "Patchy rain possible":
+                    return <BsFillCloudDrizzleFill className="icon" />;
+                  case "Partly cloudy":
+                    return <BsFillCloudSunFill className="icon" />;
+                }
+              })}
+
+              {weather?.forecast?.forecastday.map((item) => {
+                return <p className="titleDay">{item?.hour[3]?.temp_c} °C</p>;
+              })}
             </div>
+
             <div className="colunaHome">
               <p className="titleDay">morning</p>
-              {weather?.forecast?.forecastday[0]?.hour[9]?.condition.text ===
-                "Sunny" && <BsFillBrightnessHighFill className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[9]?.condition.text ===
-                "Light sleet" && <BsFillCloudHailFill className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[9]?.condition.text ===
-                "Patchy rain possible" && (
-                <BsFillCloudDrizzleFill className="icon" />
-              )}
-              {weather?.forecast?.forecastday[0]?.hour[9]?.condition.text ===
-                "Cloudy" && <BsFillCloudyFill className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[9]?.condition.text ===
-                "Freezing fog" && <BsFillCloudHaze2Fill className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[9]?.condition.text ===
-                "Partly cloudy" && <BsFillCloudSunFill className="icon" />}
 
-              <p className="titleDay">
-                {weather?.forecast?.forecastday[0]?.hour[9]?.temp_c} °C
-              </p>
+              {weather?.forecast?.forecastday.map((item) => {
+                switch (item?.hour[9]?.condition.text) {
+                  case "Sunny":
+                    return <BsFillBrightnessHighFill className="icon" />;
+                  case "Light sleet":
+                    return <BsFillCloudHailFill className="icon" />;
+                  case "Patchy rain possible":
+                    return <BsFillCloudDrizzleFill className="icon" />;
+                  case "Cloudy":
+                    return <BsFillCloudyFill className="icon" />;
+                  case "Freezing fog":
+                    return <BsFillCloudHaze2Fill className="icon" />;
+                  case "Overcast":
+                    return <BsFillCloudsFill className="icon" />;
+                  case "Partly cloudy":
+                    return <BsFillCloudSunFill className="icon" />;
+                }
+              })}
+
+              {weather?.forecast?.forecastday.map((item) => {
+                return <p className="titleDay">{item?.hour[9]?.temp_c} °C</p>;
+              })}
             </div>
+
             <div className="colunaHome">
               <p className="titleDay">afternoon</p>
-              {weather?.forecast?.forecastday[0]?.hour[15]?.condition.text ===
-                "Sunny" && <BsFillBrightnessHighFill className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[15]?.condition.text ===
-                "Light sleet" && <BsFillCloudHailFill className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[15]?.condition.text ===
-                "Patchy rain possible" && (
-                <BsFillCloudDrizzleFill className="icon" />
-              )}
-              {weather?.forecast?.forecastday[0]?.hour[15]?.condition.text ===
-                "Cloudy" && <BsFillCloudyFill className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[15]?.condition.text ===
-                "Freezing fog" && <BsFillCloudHaze2Fill className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[15]?.condition.text ===
-                "Overcast" && <BsFillCloudsFill className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[15]?.condition.text ===
-                "Partly cloudy" && <BsFillCloudSunFill className="icon" />}
 
-              <p className="titleDay">
-                {weather?.forecast?.forecastday[0]?.hour[15]?.temp_c} °C
-              </p>
+              {weather?.forecast?.forecastday.map((item) => {
+                switch (item?.hour[15]?.condition.text) {
+                  case "Sunny":
+                    return <BsFillBrightnessHighFill className="icon" />;
+                  case "Light sleet":
+                    return <BsFillCloudHailFill className="icon" />;
+                  case "Patchy rain possible":
+                    return <BsFillCloudDrizzleFill className="icon" />;
+                  case "Cloudy":
+                    return <BsFillCloudyFill className="icon" />;
+                  case "Freezing fog":
+                    return <BsFillCloudHaze2Fill className="icon" />;
+                  case "Overcast":
+                    return <BsFillCloudsFill className="icon" />;
+                  case "Partly cloudy":
+                    return <BsFillCloudSunFill className="icon" />;
+                }
+              })}
+
+              {weather?.forecast?.forecastday.map((item) => {
+                return <p className="titleDay">{item?.hour[15]?.temp_c} °C</p>;
+              })}
             </div>
+
             <div className="colunaHome">
               <p className="titleDay">night</p>
-              {weather?.forecast?.forecastday[0]?.hour[21]?.condition.text ===
-                "Clear" && <FiCloud className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[21]?.condition.text ===
-                "Mist" && <BsFillCloudHazeFill className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[21]?.condition.text ===
-                "Cloudy" && <BsFillCloudyFill className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[21]?.condition.text ===
-                "Freezing fog" && <BsFillCloudHaze2Fill className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[21]?.condition.text ===
-                "Moderate snow" && <BsFillCloudSnowFill className="icon" />}
-              {weather?.forecast?.forecastday[0]?.hour[21]?.condition.text ===
-                "Patchy rain possible" && (
-                <BsFillCloudDrizzleFill className="icon" />
-              )}
-              {weather?.forecast?.forecastday[0]?.hour[21]?.condition.text ===
-                "Partly cloudy" && <BsFillCloudyFill className="icon" />}
 
-              <p className="titleDay">
-                {weather?.forecast?.forecastday[0]?.hour[21]?.temp_c} °C
-              </p>
+              {weather?.forecast?.forecastday.map((item) => {
+                switch (item?.hour[21]?.condition.text) {
+                  case "Clear":
+                    return <FiCloud className="icon" />;
+                  case "Mist":
+                    return <BsFillCloudHazeFill className="icon" />;
+                  case "Cloudy":
+                    return <BsFillCloudyFill className="icon" />;
+                  case "Freezing fog":
+                    return <BsFillCloudHaze2Fill className="icon" />;
+                  case "Moderate snow":
+                    return <BsFillCloudSnowFill className="icon" />;
+                  case "Patchy rain possible":
+                    return <BsFillCloudDrizzleFill className="icon" />;
+                  case "Partly cloudy":
+                    return <BsFillCloudyFill className="icon" />;
+                }
+              })}
+
+              {weather?.forecast?.forecastday.map((item) => {
+                return <p className="titleDay">{item?.hour[21]?.temp_c} °C</p>;
+              })}
             </div>
           </div>
         </div>

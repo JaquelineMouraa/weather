@@ -29,6 +29,7 @@ export default function Weather() {
     setLoading(false);
   }, [city]);
 
+
   return (
     <>
       {loading ? (
@@ -36,15 +37,12 @@ export default function Weather() {
       ) : (
         <div
           className={clsx("pageGray", {
-            ["pageGray"]:
-              forecast?.forecast?.forecastday[0]?.day.condition.text ===
-              "Freezing fog",
-            ["pageSilver"]:
-              forecast?.forecast?.forecastday[0]?.day.condition.text ===
-              "Partly cloudy",
-            ["pageCyan"]:
-              forecast?.forecast?.forecastday[0]?.day.condition.text ===
-              "Sunny",
+          ["pageSilver"]:
+            forecast?.current?.condition?.text ===
+            "Partly cloudy",
+          ["pageCyan"]:
+            forecast?.current?.condition?.text ===
+            "Sunny",
           })}
         >
           <Link to="/">
@@ -52,11 +50,6 @@ export default function Weather() {
           </Link>
           <div className="pageBox">
             <h1>{forecast?.location?.name}</h1>
-
-            {/* <p className="forecastTitle">
-              {forecast?.forecast?.forecastday[0]?.day.condition.text}
-            </p>   */}
-
             {forecast?.forecast?.forecastday.map((item) => {
               return (
                 <p className="forecastTitle">{item?.day?.condition?.text}</p>
@@ -70,21 +63,15 @@ export default function Weather() {
                 <div className="variation">
                   <AiOutlineArrowUp className="iconArrow" />
 
-                  {/* <p className="forecastTitle">
-                    {forecast?.forecast?.forecastday[0]?.day.maxtemp_c}°
-                  </p> */}
-
                   {forecast?.forecast?.forecastday.map((item) => {
                     return (
                       <p className="forecastTitle">{item?.day?.maxtemp_c}°</p>
                     );
                   })}
                 </div>
+
                 <div className="variation">
                   <AiOutlineArrowDown className="iconArrow" />
-                  {/* <p className="forecastTitle">
-                    {forecast?.forecast?.forecastday[0]?.day.mintemp_c}°
-                  </p> */}
 
                   {forecast?.forecast?.forecastday.map((item) => {
                     return (
@@ -96,24 +83,24 @@ export default function Weather() {
             </div>
 
             <div>
-              {forecast?.forecast?.forecastday[0]?.day.condition.text ===
-                "Sunny" && <FiSun className="iconWeather" />}
-              {forecast?.forecast?.forecastday[0]?.day.condition.text ===
-                "Freezing fog" && <FiCloudSnow className="iconWeather" />}
-              {forecast?.forecast?.forecastday[0]?.day.condition.text ===
-                "Light snow" && <BsFillCloudSnowFill className="iconWeather" />}
-              {forecast?.forecast?.forecastday[0]?.day.condition.text ===
-                "Mist" && <FiCloud className="iconWeather" />}
-              {forecast?.forecast?.forecastday[0]?.day.condition.text ===
-                "Patchy rain possible" && (
-                <FiCloudDrizzle className="iconWeather" />
-              )}
-              {forecast?.forecast?.forecastday[0]?.day.condition.text ===
-                "Moderate rain" && <FiCloudDrizzle className="iconWeather" />}
-              {forecast?.forecast?.forecastday[0]?.day.condition.text ===
-                "Partly cloudy" && (
-                <BsFillCloudSunFill className="iconWeather" />
-              )}
+              {forecast?.forecast?.forecastday.map((item) => {
+                switch (item?.day?.condition.text) {
+                  case "Sunny":
+                    return <FiSun className="iconWeather" />;
+                  case "Freezing fog":
+                    return <FiCloudSnow className="iconWeather" />;
+                  case "Light snow":
+                    return <BsFillCloudSnowFill className="iconWeather" />;
+                  case "Mist":
+                    return <FiCloud className="iconWeather" />;
+                  case "Patchy rain possible":
+                    return <FiCloudDrizzle className="iconWeather" />;
+                  case "Moderate rain":
+                    return <FiCloudDrizzle className="iconWeather" />;
+                  case "Partly cloudy":
+                    return <BsFillCloudSunFill className="iconWeather" />;
+                }
+              })}
             </div>
 
             <Details />
@@ -128,9 +115,6 @@ export default function Weather() {
                 </div>
                 <div className="homeColumn">
                   <p className="forecastTitle">sunrise</p>
-                  {/* <p className="forecastTitle">
-                    {forecast?.forecast?.forecastday[0]?.astro.sunrise}
-                  </p> */}
 
                   {forecast?.forecast?.forecastday.map((item) => {
                     return (
@@ -140,9 +124,6 @@ export default function Weather() {
                 </div>
                 <div className="homeColumn">
                   <p className="forecastTitle">sunset</p>
-                  {/* <p className="forecastTitle">
-                    {forecast?.forecast?.forecastday[0]?.astro.sunset}
-                  </p> */}
 
                   {forecast?.forecast?.forecastday.map((item) => {
                     return (
