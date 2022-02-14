@@ -1,4 +1,5 @@
 import "./style.css";
+import moment from "moment";
 import app from "../../services/api.js";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -23,19 +24,19 @@ export function Details() {
   const [weather, setWeather] = useState({});
   const [loading, setLoading] = useState(true);
   const keyApi = "ed558a9ee7d74742a1c211750220702";
+  const date = moment(new Date()).format("yyyy-MM-DD");
 
   useEffect(() => {
     async function getWeather() {
       const response = await app.get(
-        `/history.json?key=${keyApi}&q=${city}&dt=${"2022-02-12"}`
+        `/history.json?key=${keyApi}&q=${city}&dt=${date}`
       );
       setWeather(response.data);
     }
     getWeather();
     setLoading(false);
   }, [city]);
-
-
+  
   return (
     <>
       {loading ? (
