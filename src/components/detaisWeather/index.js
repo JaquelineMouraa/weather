@@ -43,7 +43,6 @@ export function Details() {
         <div>Carregando...</div>
       ) : (
         <div className="boxDetails">
-          {/* dawn 3:00, morning 9:00, afternoon 15:00, night 21:00  */}
           <div className="homeLine">
             <div className="colunaHome">
               <p className="titleDay">dawn</p>
